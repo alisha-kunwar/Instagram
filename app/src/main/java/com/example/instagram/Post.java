@@ -38,10 +38,9 @@ public class Post extends ParseObject {
 
     }
 
-//    public static String getKeyCreatedKey() {
-//        return KEY_CREATED_KEY;
-//    }
-//    public void setKeyCreatedKey(){
-//        put(KEY_CREATED_KEY, createdAt);
-//    }
+    public static String getKeyCreatedKey() {
+       return KEY_CREATED;
+    }
+   public void setKeyCreatedKey(String createdAt){
+       put(KEY_CREATED, createdAt); }
 }

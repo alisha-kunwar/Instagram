@@ -8,11 +8,18 @@
     android:orientation="vertical"
     tools:context=".MainActivity">
 
+    <androidx.swiperefreshlayout.widget.SwipeRefreshLayout
+        android:id="@+id/swipeContainer"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
     <FrameLayout
         android:id="@+id/flContainer"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_above="@id/bottom_navigation">
+
+
 
         <Button
             android:id="@+id/logout"
@@ -21,7 +28,7 @@
             android:layout_marginLeft="290dp"
             android:text="Logout" />
     </FrameLayout>
-
+    </androidx.swiperefreshlayout.widget.SwipeRefreshLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -34,6 +41,7 @@
         app:menu="@menu/menu_bottom_navigation"
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteY="535dp" >
+
 
     </com.google.android.material.bottomnavigation.BottomNavigationView>
 
