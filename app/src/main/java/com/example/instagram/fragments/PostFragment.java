@@ -14,10 +14,12 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import com.example.instagram.Post;
+import com.example.instagram.PostAdapter;
 import com.example.instagram.R;
 import com.parse.FindCallback;
 import com.parse.ParseException;
 import com.parse.ParseQuery;
+import com.parse.ParseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +27,7 @@ import java.util.List;
 public class PostFragment extends Fragment {
     public static final  String TAG = "PostFragment";
     private RecyclerView rvPosts;
-
+    protected PostAdapter adapter;
     protected List<Post> allPosts;
 
     public PostFragment() {
@@ -46,10 +48,10 @@ public class PostFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
         rvPosts = view.findViewById(R.id.rvPosts);
         allPosts = new ArrayList<>();
-//        adapter = new PostsAdapter(getContext(), allPosts);
-//
-//        rvPosts.setAdapter(adapter);
-//        rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
+        adapter = new PostAdapter(getContext(), allPosts);
+
+        rvPosts.setAdapter(adapter);
+        rvPosts.setLayoutManager(new LinearLayoutManager(getContext()));
         queryPost();
 
     }
@@ -69,8 +71,8 @@ public class PostFragment extends Fragment {
                 for (Post post: posts){
                     Log.i(TAG, "Posts: " + post.getDescription() + "user : " + post.getUser().getUsername());
                 }
-//                allPosts.addAll(posts);
-//                adapter.notifyDataSetChanged();
+                allPosts.addAll(posts);
+                adapter.notifyDataSetChanged();
 
             }
         });
