@@ -58,7 +58,7 @@ public class LoginActivity extends AppCompatActivity {
             public void done(ParseException e) {
                 if (e != null) {
                     Log.e(TAG, "Issue with login");
-                    Toast.makeText(LoginActivity.this, "Issue with login", Toast.LENGTH_SHORT);
+                    Toast.makeText(LoginActivity.this, "Issue with signup", Toast.LENGTH_SHORT);
 
                 } else {
                     Toast.makeText(LoginActivity.this, "Success", Toast.LENGTH_SHORT);
